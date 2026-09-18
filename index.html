@@ -1,0 +1,316 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Pharmaccelerator — AI models for the economic value of medicines</title>
+<meta name="description" content="Pharmaccelerator trains AI models on health economics and outcomes research so payers, manufacturers, investors and health systems can assess the value of a medicine.">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<meta property="og:title" content="Pharmaccelerator">
+<meta property="og:description" content="AI models for the economic value of medicines.">
+<meta property="og:url" content="https://pharmaccelerator.ai/">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+  :root {
+    --ground: #F6F8F9;
+    --surface: #FFFFFF;
+    --ink: #10212E;
+    --ink-2: #4E5F6A;
+    --line: #D6DEE2;
+    --grid: #E6ECEF;
+    --primary: #0B5C6B;
+    --primary-ink: #FFFFFF;
+    --accent: #37B6C6;
+    --accent-soft: #DDF2F5;
+    --dot: #37B6C6;
+    --dot-out: #B8C4CB;
+    --display: "Bricolage Grotesque", "Helvetica Neue", Arial, sans-serif;
+    --body: "IBM Plex Sans", "Segoe UI", Helvetica, Arial, sans-serif;
+    --mono: "IBM Plex Mono", ui-monospace, "SF Mono", Menlo, monospace;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --ground: #0C1720;
+      --surface: #12212C;
+      --ink: #EAF1F4;
+      --ink-2: #9FB1BB;
+      --line: #23343F;
+      --grid: #1C2C37;
+      --primary: #37B6C6;
+      --primary-ink: #06232A;
+      --accent: #5FD0DD;
+      --accent-soft: #123640;
+      --dot: #5FD0DD;
+      --dot-out: #3B4E5A;
+    }
+  }
+  :root[data-theme="dark"] {
+    --ground: #0C1720;
+    --surface: #12212C;
+    --ink: #EAF1F4;
+    --ink-2: #9FB1BB;
+    --line: #23343F;
+    --grid: #1C2C37;
+    --primary: #37B6C6;
+    --primary-ink: #06232A;
+    --accent: #5FD0DD;
+    --accent-soft: #123640;
+    --dot: #5FD0DD;
+    --dot-out: #3B4E5A;
+  }
+
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    background: var(--ground);
+    color: var(--ink);
+    font-family: var(--body);
+    font-size: 17px;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+  }
+  a { color: inherit; }
+  a:focus-visible, button:focus-visible { outline: 3px solid var(--accent); outline-offset: 3px; }
+
+  .wrap { max-width: 1120px; margin: 0 auto; padding-inline: 24px; }
+  @media (max-width: 480px) { .wrap { padding-inline: 16px; } }
+
+  /* Header */
+  header {
+    position: sticky; top: env(safe-area-inset-top, 0px); z-index: 10;
+    background: color-mix(in srgb, var(--ground) 88%, transparent);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid var(--line);
+  }
+  .nav { display: flex; align-items: center; justify-content: space-between; gap: 24px; padding-block: 14px; }
+  .brand { display: inline-flex; align-items: center; gap: 12px; text-decoration: none; font-family: var(--display); font-weight: 700; font-size: 1.15rem; letter-spacing: -0.02em; }
+  .brand svg { width: 40px; height: 30px; }
+  .brand .tld { color: var(--accent); }
+  .nav-links { display: flex; gap: 22px; font-size: 0.95rem; font-weight: 500; }
+  .nav-links a { text-decoration: none; color: var(--ink-2); }
+  .nav-links a:hover { color: var(--ink); }
+  @media (max-width: 640px) { .nav-links { display: none; } }
+
+  /* Hero */
+  .hero { padding-block: 72px 56px; display: grid; grid-template-columns: minmax(0, 7fr) minmax(0, 5fr); gap: 48px; align-items: center; }
+  @media (max-width: 860px) { .hero { grid-template-columns: 1fr; padding-block: 48px 40px; } }
+  .eyebrow { font-family: var(--mono); font-size: 0.8rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--primary); margin: 0 0 18px; }
+  h1 { font-family: var(--display); font-weight: 800; font-size: clamp(2.4rem, 5.6vw, 4.4rem); line-height: 1.02; letter-spacing: -0.035em; margin: 0 0 22px; text-wrap: balance; }
+  h1 em { font-style: normal; color: var(--primary); }
+  .lede { font-size: 1.2rem; color: var(--ink-2); max-width: 34em; margin: 0 0 30px; }
+  .cta-row { display: flex; flex-wrap: wrap; gap: 14px; align-items: center; }
+  .btn { display: inline-flex; align-items: center; gap: 10px; padding: 14px 22px; border-radius: 8px; font-weight: 600; text-decoration: none; font-size: 1rem; border: 1px solid transparent; transition: transform 120ms ease, background 120ms ease; }
+  .btn-primary { background: var(--primary); color: var(--primary-ink); }
+  .btn-primary:hover { transform: translateY(-1px); }
+  .btn-ghost { border-color: var(--line); color: var(--ink); background: transparent; }
+  .btn-ghost:hover { background: var(--surface); }
+
+  /* Cost-effectiveness plane */
+  .plane-card { background: var(--surface); border: 1px solid var(--line); border-radius: 14px; padding: 18px 18px 14px; max-width: 100%; }
+  .plane-head { display: flex; justify-content: space-between; gap: 12px; font-family: var(--mono); font-size: 0.72rem; color: var(--ink-2); margin-bottom: 10px; letter-spacing: 0.04em; }
+  .plane { width: 100%; height: auto; display: block; }
+  .plane .axis { stroke: var(--line); stroke-width: 1.5; }
+  .plane .grid { stroke: var(--grid); stroke-width: 1; }
+  .plane .thr { stroke: var(--primary); stroke-width: 2; stroke-dasharray: 6 5; }
+  .plane .lbl { font-family: var(--mono); font-size: 10px; fill: var(--ink-2); }
+  .plane .lbl-thr { font-family: var(--mono); font-size: 10px; fill: var(--primary); }
+  .plane .pt { fill: var(--dot); opacity: 0.75; transition: cx 900ms ease, cy 900ms ease; }
+  .plane .pt.out { fill: var(--dot-out); opacity: 0.8; }
+  .plane .mean { fill: var(--ink); stroke: var(--surface); stroke-width: 2; }
+  .plane-foot { display: flex; justify-content: space-between; gap: 12px; flex-wrap: wrap; font-family: var(--mono); font-size: 0.72rem; color: var(--ink-2); margin-top: 10px; }
+  .plane-foot b { color: var(--ink); font-weight: 500; font-variant-numeric: tabular-nums; }
+
+  /* Sections */
+  section { padding-block: 24px 72px; }
+  .section-head { display: grid; grid-template-columns: minmax(0, 4fr) minmax(0, 8fr); gap: 32px; margin-bottom: 40px; }
+  @media (max-width: 760px) { .section-head { grid-template-columns: 1fr; gap: 12px; } }
+  h2 { font-family: var(--display); font-weight: 700; font-size: clamp(1.7rem, 3.2vw, 2.4rem); letter-spacing: -0.025em; line-height: 1.1; margin: 0; text-wrap: balance; }
+  .section-head p { margin: 0; color: var(--ink-2); font-size: 1.08rem; max-width: 40em; }
+
+  .grid-3 { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 20px; }
+  @media (max-width: 860px) { .grid-3 { grid-template-columns: 1fr; } }
+  .cap { background: var(--surface); border: 1px solid var(--line); border-radius: 12px; padding: 26px 24px; display: flex; flex-direction: column; gap: 12px; }
+  .cap .tag { font-family: var(--mono); font-size: 0.74rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--primary); }
+  .cap h3 { font-family: var(--display); font-size: 1.3rem; font-weight: 700; margin: 0; letter-spacing: -0.02em; }
+  .cap p { margin: 0; color: var(--ink-2); font-size: 0.98rem; }
+
+  /* Stakeholder strip */
+  .pipeline { border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); padding-block: 40px; }
+  .stages { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 0; }
+  @media (max-width: 860px) { .stages { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+  @media (max-width: 520px) { .stages { grid-template-columns: 1fr; } }
+  .stage { padding: 14px 18px 14px 16px; border-left: 2px solid var(--accent); margin-bottom: 8px; }
+  .stage .k { font-family: var(--mono); font-size: 0.72rem; color: var(--ink-2); letter-spacing: 0.08em; text-transform: uppercase; display: block; margin-bottom: 6px; }
+  .stage .n { font-family: var(--display); font-weight: 700; font-size: 1.08rem; letter-spacing: -0.01em; display: block; }
+  .stage .d { font-size: 0.9rem; color: var(--ink-2); display: block; margin-top: 4px; }
+
+  /* Approach */
+  .approach { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 20px; }
+  @media (max-width: 860px) { .approach { grid-template-columns: 1fr; } }
+  .principle { padding: 22px 0; border-top: 1px solid var(--line); display: grid; grid-template-columns: 36px minmax(0, 1fr); gap: 16px; }
+  .principle .glyph { width: 28px; height: 28px; color: var(--primary); }
+  .principle h3 { font-family: var(--display); font-size: 1.12rem; font-weight: 700; margin: 0 0 6px; letter-spacing: -0.015em; }
+  .principle p { margin: 0; color: var(--ink-2); font-size: 0.96rem; }
+
+  /* Contact */
+  .contact { background: var(--primary); color: var(--primary-ink); border-radius: 18px; padding: clamp(32px, 6vw, 64px); display: grid; grid-template-columns: minmax(0, 7fr) minmax(0, 5fr); gap: 32px; align-items: center; }
+  @media (max-width: 860px) { .contact { grid-template-columns: 1fr; } }
+  .contact h2 { color: inherit; }
+  .contact p { margin: 12px 0 0; opacity: 0.85; max-width: 32em; }
+  .mail { display: inline-flex; flex-direction: column; gap: 6px; text-decoration: none; color: inherit; font-family: var(--mono); font-size: clamp(0.9rem, 1.7vw, 1.08rem); padding: 20px 22px; border: 1px solid color-mix(in srgb, currentColor 35%, transparent); border-radius: 12px; background: color-mix(in srgb, currentColor 8%, transparent); transition: background 120ms ease; overflow-wrap: anywhere; }
+  .mail:hover { background: color-mix(in srgb, currentColor 16%, transparent); }
+  .mail small { font-family: var(--body); font-size: 0.8rem; letter-spacing: 0.08em; text-transform: uppercase; opacity: 0.75; }
+
+  footer { padding-block: 36px 48px; display: flex; flex-wrap: wrap; justify-content: space-between; gap: 12px; font-size: 0.88rem; color: var(--ink-2); font-family: var(--mono); }
+
+  @media (prefers-reduced-motion: reduce) {
+    .plane .pt { transition: none; }
+    .btn { transition: none; }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap nav">
+    <a class="brand" href="#top" aria-label="Pharmaccelerator.ai home">
+      <svg viewBox="0 0 150 100" aria-hidden="true">
+        <polygon points="50,6 88,28 88,72 50,94 12,72 12,28" fill="none" stroke="var(--primary)" stroke-width="9" stroke-linejoin="round"/>
+        <circle cx="50" cy="50" r="17" fill="none" stroke="var(--primary)" stroke-width="6" opacity="0.55"/>
+        <path d="M88 50 H128 M110 32 L128 50 L110 68" fill="none" stroke="var(--accent)" stroke-width="9" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+      <span>pharmaccelerator<span class="tld">.ai</span></span>
+    </a>
+    <nav class="nav-links" aria-label="Sections">
+      <a href="#contact">Contact</a>
+    </nav>
+  </div>
+</header>
+
+<main id="top">
+  <div class="wrap hero">
+    <div>
+      <p class="eyebrow">AI models for the economic value of medicines</p>
+      <h1>We train AI models that understand <em>what a medicine is worth</em>.</h1>
+      <p class="lede">Pharmaccelerator trains domain models on health economics and outcomes research: HTA appraisals, economic evaluations, pricing and reimbursement decisions, and real-world outcomes. So that payers, manufacturers, investors and health systems can each assess the value of a medicine from their own perspective, with the evidence in view.</p>
+      <div class="cta-row">
+        <a class="btn btn-primary" href="mailto:contact@pharmaccelerator.ai?subject=Pharmaccelerator%20inquiry">Talk to us
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+        </a>
+        <a class="btn btn-ghost" href="#contact">Contact</a>
+      </div>
+    </div>
+
+    <figure class="plane-card" aria-label="Illustrative cost-effectiveness plane: incremental cost against incremental QALYs, with a willingness-to-pay threshold line and a cloud of probabilistic sensitivity analysis results">
+      <div class="plane-head"><span>COST-EFFECTIVENESS PLANE</span><span>PSA &middot; ILLUSTRATIVE</span></div>
+      <svg class="plane" id="plane" viewBox="0 0 360 260" aria-hidden="true"></svg>
+      <div class="plane-foot"><span>P(cost-effective at threshold): <b id="pce">0%</b></span><span>Mean ICER: <b id="icer">&mdash;</b> / QALY</span></div>
+    </figure>
+  </div>
+
+
+  <section id="contact">
+    <div class="wrap">
+      <div class="contact">
+        <div>
+          <p class="eyebrow" style="color: inherit; opacity: 0.8;">Get in touch</p>
+          <h2>Tell us which medicine, and whose value question you need to answer.</h2>
+          <p>We will come back with a view on the evidence available, what a trained model could add, and what it would take to build one.</p>
+        </div>
+        <a class="mail" href="mailto:contact@pharmaccelerator.ai">
+          <small>Email</small>
+          contact@pharmaccelerator.ai
+        </a>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="wrap">
+  <span>&copy; 2026 Pharmaccelerator</span>
+  <span>pharmaccelerator.ai</span>
+</footer>
+
+<script>
+  (function () {
+    var NS = 'http://www.w3.org/2000/svg';
+    var svg = document.getElementById('plane');
+    var pceEl = document.getElementById('pce');
+    var icerEl = document.getElementById('icer');
+
+    // Plot area inside the 360x260 viewBox.
+    var L = 44, R = 350, T = 14, B = 224;
+    // Axis ranges: incremental QALYs -0.4..1.2, incremental cost -20k..60k.
+    var qMin = -0.4, qMax = 1.2, cMin = -20000, cMax = 60000;
+    var threshold = 30000; // per QALY, willingness-to-pay line
+    function X(q) { return L + (q - qMin) / (qMax - qMin) * (R - L); }
+    function Y(c) { return B - (c - cMin) / (cMax - cMin) * (B - T); }
+    function el(name, attrs) {
+      var e = document.createElementNS(NS, name);
+      for (var k in attrs) e.setAttribute(k, attrs[k]);
+      svg.appendChild(e);
+      return e;
+    }
+
+    // Grid
+    [0, 20000, 40000].forEach(function (c) { el('line', { class: 'grid', x1: L, x2: R, y1: Y(c), y2: Y(c) }); });
+    [0.4, 0.8].forEach(function (q) { el('line', { class: 'grid', x1: X(q), x2: X(q), y1: T, y2: B }); });
+    // Axes through the origin
+    el('line', { class: 'axis', x1: L, x2: R, y1: Y(0), y2: Y(0) });
+    el('line', { class: 'axis', x1: X(0), x2: X(0), y1: T, y2: B });
+    // Threshold line: cost = threshold * QALY
+    var q0 = cMin / threshold, q1 = cMax / threshold;
+    if (q0 < qMin) q0 = qMin;
+    if (q1 > qMax) q1 = qMax;
+    el('line', { class: 'thr', x1: X(q0), y1: Y(q0 * threshold), x2: X(q1), y2: Y(q1 * threshold) });
+    var t = el('text', { class: 'lbl-thr', x: X(q1) - 4, y: Y(q1 * threshold) + 14, 'text-anchor': 'end' });
+    t.textContent = 'WTP 30k / QALY';
+    // Axis labels
+    var lx = el('text', { class: 'lbl', x: R, y: B + 26, 'text-anchor': 'end' }); lx.textContent = 'Incremental QALYs';
+    var ly = el('text', { class: 'lbl', x: 6, y: T + 8 }); ly.textContent = 'Incremental cost';
+    var l0 = el('text', { class: 'lbl', x: X(0) - 4, y: B + 12, 'text-anchor': 'end' }); l0.textContent = '0';
+    var l1 = el('text', { class: 'lbl', x: X(1), y: B + 12, 'text-anchor': 'middle' }); l1.textContent = '1.0';
+    var lc = el('text', { class: 'lbl', x: L - 4, y: Y(40000) + 3, 'text-anchor': 'end' }); lc.textContent = '40k';
+    var lc0 = el('text', { class: 'lbl', x: L - 4, y: Y(0) + 3, 'text-anchor': 'end' }); lc0.textContent = '0';
+
+    // Deterministic pseudo-random so the resting state is identical on every load.
+    var seed = 11;
+    function rnd() { seed = (seed * 9301 + 49297) % 233280; return seed / 233280; }
+    function gauss() { var u = rnd() || 1e-6, v = rnd(); return Math.sqrt(-2 * Math.log(u)) * Math.cos(2 * Math.PI * v); }
+
+    var N = 180, pts = [];
+    for (var i = 0; i < N; i++) pts.push(el('circle', { class: 'pt', r: 3 }));
+    var mean = el('circle', { class: 'mean', r: 5 });
+
+    var pass = 0;
+    function draw() {
+      // Cloud centre drifts slightly between passes to suggest re-sampling.
+      var mq = 0.52 + 0.06 * Math.sin(pass * 1.3), mc = 14000 + 2500 * Math.cos(pass * 0.9);
+      var sq = 0.22, sc = 11000, rho = 0.35;
+      var inside = 0, sumQ = 0, sumC = 0;
+      for (var i = 0; i < N; i++) {
+        var z1 = gauss(), z2 = gauss();
+        var q = mq + sq * z1;
+        var c = mc + sc * (rho * z1 + Math.sqrt(1 - rho * rho) * z2);
+        sumQ += q; sumC += c;
+        var ok = (threshold * q - c) > 0;
+        if (ok) inside++;
+        pts[i].setAttribute('cx', X(Math.max(qMin, Math.min(qMax, q))));
+        pts[i].setAttribute('cy', Y(Math.max(cMin, Math.min(cMax, c))));
+        pts[i].setAttribute('class', 'pt' + (ok ? '' : ' out'));
+      }
+      mean.setAttribute('cx', X(sumQ / N));
+      mean.setAttribute('cy', Y(sumC / N));
+      pceEl.textContent = Math.round(inside / N * 100) + '%';
+      var icer = (sumC / N) / (sumQ / N);
+      icerEl.textContent = Math.round(icer / 100) * 100 / 1000 + 'k';
+      pass++;
+    }
+    draw();
+    var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    if (!reduce) setInterval(draw, 3200);
+  })();
+</script>
+</body>
+</html>

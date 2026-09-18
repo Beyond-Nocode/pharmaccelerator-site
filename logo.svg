@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 120" width="640" height="120" role="img" aria-label="Pharmaccelerator.ai">
+  <title>Pharmaccelerator.ai</title>
+  <defs>
+    <style>
+      .ink { fill: #10212E; }
+      .accent { fill: #37B6C6; }
+      .ring { fill: none; stroke: #0B5C6B; stroke-width: 9; stroke-linejoin: round; stroke-linecap: round; }
+      .arrow { fill: none; stroke: #37B6C6; stroke-width: 9; stroke-linejoin: round; stroke-linecap: round; }
+      text { font-family: "Bricolage Grotesque", "IBM Plex Sans", "Helvetica Neue", Arial, sans-serif; font-weight: 700; letter-spacing: -0.02em; }
+    </style>
+  </defs>
+  <!-- Mark: benzene ring with one bond extended into an arrow -->
+  <g transform="translate(10,10)">
+    <polygon class="ring" points="50,6 88,28 88,72 50,94 12,72 12,28" />
+    <circle cx="50" cy="50" r="17" fill="none" stroke="#0B5C6B" stroke-width="6" opacity="0.55" />
+    <path class="arrow" d="M88 50 H128 M110 32 L128 50 L110 68" />
+  </g>
+  <!-- Wordmark -->
+  <text x="160" y="78" font-size="58" class="ink">pharmaccelerator<tspan class="accent">.ai</tspan></text>
+</svg>
