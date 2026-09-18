@@ -162,7 +162,9 @@
   .mail:hover { background: color-mix(in srgb, currentColor 16%, transparent); }
   .mail small { font-family: var(--body); font-size: 0.8rem; letter-spacing: 0.08em; text-transform: uppercase; opacity: 0.75; }
 
-  footer { padding-block: 36px 48px; display: flex; flex-wrap: wrap; justify-content: space-between; gap: 12px; font-size: 0.88rem; color: var(--ink-2); font-family: var(--mono); }
+  footer { padding-block: 36px 48px; display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 12px 24px; font-size: 0.88rem; color: var(--ink-2); font-family: var(--mono); border-top: 1px solid var(--line); }
+  .legal { display: inline-flex; align-items: center; gap: 10px; flex-wrap: wrap; }
+  .flag { width: 22px; height: 15px; border-radius: 2px; flex: none; }
 
   @media (prefers-reduced-motion: reduce) {
     .plane .pt { transition: none; }
@@ -228,8 +230,18 @@
 </main>
 
 <footer class="wrap">
+  <span class="legal">
+    <svg class="flag" viewBox="0 0 600 400" aria-label="Portugal" role="img">
+      <rect width="600" height="400" fill="#FF0000"/>
+      <rect width="240" height="400" fill="#006600"/>
+      <circle cx="240" cy="200" r="70" fill="#FFCC00"/>
+      <circle cx="240" cy="200" r="56" fill="#FF0000"/>
+      <rect x="216" y="172" width="48" height="56" rx="8" fill="#FFFFFF"/>
+      <rect x="222" y="178" width="36" height="44" rx="6" fill="#0033A0"/>
+    </svg>
+    <span>Quantum Reasons - Unipessoal Lda &middot; NIF 519270932 &middot; Lisbon</span>
+  </span>
   <span>&copy; 2026 Pharmaccelerator</span>
-  <span>pharmaccelerator.ai</span>
 </footer>
 
 <script>
