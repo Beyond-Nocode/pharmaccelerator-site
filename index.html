@@ -390,8 +390,21 @@
   (function () {
     var svg = document.getElementById('persp-svg');
     if (!svg) return;
+    function fit(t, maxW, minSize) {
+      // Shrink a text element's font until it fits maxW (SVG units); measured after layout
+      try {
+        var size = parseFloat(getComputedStyle(t).fontSize) || 12;
+        var len = t.getComputedTextLength();
+        var guard = 0;
+        while (len > maxW && size > minSize && guard++ < 12) {
+          size = Math.max(minSize, size - 0.5);
+          t.style.fontSize = size + 'px';
+          len = t.getComputedTextLength();
+        }
+      } catch (e) { /* not rendered yet; leave as is */ }
+    }
     var NS = 'http://www.w3.org/2000/svg';
-    var CX = 600, CY = 500, R = 390, CORE_R = 128, CARD_W = 252, CARD_H = 122;
+    var CX = 600, CY = 500, R = 390, CORE_R = 128, CARD_W = 270, CARD_H = 122;
     function el(name, attrs, parent) {
       var e = document.createElementNS(NS, name);
       for (var k in attrs) e.setAttribute(k, attrs[k]);
@@ -460,9 +473,10 @@
       var g = el('g', { 'class': 'node', tabindex: 0 }, cards);
       var x0 = px - CARD_W / 2, y0 = py - CARD_H / 2;
       el('rect', { x: x0, y: y0, width: CARD_W, height: CARD_H, rx: 14, 'class': 'card', filter: 'url(#persp-shadow)' }, g);
-      txt(x0 + 18, y0 + 30, 'name', n.name, g);
-      n.q.forEach(function (line, j) { txt(x0 + 18, y0 + 54 + j * 17, 'q', line, g); });
-      txt(x0 + 18, y0 + CARD_H - 16, 'counts', n.counts, g);
+      var maxW = CARD_W - 36;
+      fit(txt(x0 + 18, y0 + 30, 'name', n.name, g), maxW, 13);
+      n.q.forEach(function (line, j) { fit(txt(x0 + 18, y0 + 54 + j * 17, 'q', line, g), maxW, 10.5); });
+      fit(txt(x0 + 18, y0 + CARD_H - 16, 'counts', n.counts, g), maxW, 9.5);
 
       // Flowing dot along the spoke
       if (!reduce) {
@@ -485,6 +499,15 @@
     txt(CX, CY + 12, 'core-line', 'clinical effect and safety', coreG, 'middle');
     txt(CX, CY + 29, 'core-line', 'acquisition and care costs', coreG, 'middle');
     txt(CX, CY + 46, 'core-line', 'outcomes, utilities, epidemiology', coreG, 'middle');
+    function refit() {
+      var maxW = CARD_W - 36;
+      svg.querySelectorAll('.node text').forEach(function (t) {
+        t.style.fontSize = '';
+        var min = t.classList.contains('name') ? 13 : t.classList.contains('q') ? 10.5 : 9.5;
+        fit(t, maxW, min);
+      });
+    }
+    if (document.fonts && document.fonts.ready) document.fonts.ready.then(refit);
   })();
 </script>
 </body>
