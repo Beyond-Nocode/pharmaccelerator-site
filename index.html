@@ -98,7 +98,7 @@
   .eyebrow { font-family: var(--mono); font-size: 0.8rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--primary); margin: 0 0 18px; }
   h1 { font-family: var(--display); font-weight: 800; font-size: clamp(2.4rem, 5.6vw, 4.4rem); line-height: 1.02; letter-spacing: -0.035em; margin: 0 0 22px; text-wrap: balance; }
   h1 em { font-style: normal; color: var(--primary); }
-  .lede { font-size: 1.2rem; color: var(--ink-2); max-width: 34em; margin: 0; }
+  .lede { font-size: 1.2rem; color: var(--ink-2); max-width: 58em; margin: 0; }
   .cta-row { display: flex; flex-wrap: wrap; gap: 14px; align-items: center; }
   .btn { display: inline-flex; align-items: center; gap: 10px; padding: 14px 22px; border-radius: 8px; font-weight: 600; text-decoration: none; font-size: 1rem; border: 1px solid transparent; transition: transform 120ms ease, background 120ms ease; }
   .btn-primary { background: var(--primary); color: var(--primary-ink); }
@@ -107,7 +107,7 @@
   .btn-ghost:hover { background: var(--surface); }
 
   /* Cost-effectiveness plane */
-  .plane-card { background: var(--surface); border: 1px solid var(--line); border-radius: 14px; padding: 18px 18px 14px; max-width: 720px; width: 100%; margin: 0; }
+  .plane-card { background: var(--surface); border: 1px solid var(--line); border-radius: 14px; padding: 18px 20px 14px; max-width: 100%; width: 100%; margin: 0; }
   .plane-head { display: flex; justify-content: space-between; gap: 12px; font-family: var(--mono); font-size: 0.72rem; color: var(--ink-2); margin-bottom: 10px; letter-spacing: 0.04em; }
   .plane { width: 100%; height: auto; display: block; }
   .plane .axis { stroke: var(--line); stroke-width: 1.5; }
@@ -236,7 +236,7 @@
 
     <figure class="plane-card" aria-label="Illustrative cost-effectiveness plane: incremental cost against incremental QALYs, with a willingness-to-pay threshold line and a cloud of probabilistic sensitivity analysis results">
       <div class="plane-head"><span>COST-EFFECTIVENESS PLANE</span><span>PSA &middot; ILLUSTRATIVE</span></div>
-      <svg class="plane" id="plane" viewBox="0 0 360 260" aria-hidden="true"></svg>
+      <svg class="plane" id="plane" viewBox="0 0 760 300" aria-hidden="true"></svg>
       <div class="plane-foot"><span>P(cost-effective at threshold): <b id="pce">0%</b></span><span>Mean ICER: <b id="icer">&mdash;</b> / QALY</span></div>
     </figure>
   </div>
@@ -305,8 +305,8 @@
     var pceEl = document.getElementById('pce');
     var icerEl = document.getElementById('icer');
 
-    // Plot area inside the 360x260 viewBox.
-    var L = 44, R = 350, T = 14, B = 224;
+    // Plot area inside the 760x300 viewBox.
+    var L = 48, R = 748, T = 16, B = 262;
     // Axis ranges: incremental QALYs -0.4..1.2, incremental cost -20k..60k.
     var qMin = -0.4, qMax = 1.2, cMin = -20000, cMax = 60000;
     var threshold = 30000; // per QALY, willingness-to-pay line
