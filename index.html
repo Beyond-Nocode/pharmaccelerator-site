@@ -170,6 +170,41 @@
     .plane .pt { transition: none; }
     .btn { transition: none; }
   }
+
+  /* Perspectives diagram */
+  .persp { padding-block: 56px 72px; }
+  .persp-fig { margin: 0; }
+  .persp-svg { display: block; width: 100%; height: auto; color: var(--ink); }
+  .persp-fig figcaption { margin-top: 12px; color: var(--ink-2); font-size: 0.92rem; max-width: 60em; }
+  .persp-list { display: none; list-style: none; margin: 0; padding: 0; gap: 12px; grid-template-columns: 1fr; }
+  .persp-list li { background: var(--surface); border: 1px solid var(--line); border-radius: 12px; padding: 16px 18px; display: grid; gap: 4px; }
+  .persp-list li .k { font-family: var(--mono); font-size: 0.7rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--primary); }
+  .persp-list li b { font-family: var(--display); font-size: 1.05rem; letter-spacing: -0.01em; }
+  .persp-list li span:last-child { color: var(--ink-2); font-size: 0.92rem; }
+  .persp-list .persp-core { background: var(--primary); border-color: var(--primary); color: var(--primary-ink); }
+  .persp-list .persp-core .k, .persp-list .persp-core span:last-child { color: inherit; opacity: 0.85; }
+  @media (max-width: 720px) { .persp-fig { display: none; } .persp-list { display: grid; } }
+  /* SVG parts */
+  .persp-svg .dust { fill: var(--ink-2); opacity: 0.18; }
+  .persp-svg .ring { fill: none; stroke: var(--line); stroke-width: 1; stroke-dasharray: 2 6; }
+  .persp-svg .spoke { fill: none; stroke: var(--line); stroke-width: 2; transition: stroke 200ms ease; }
+  .persp-svg .flow { fill: var(--accent); }
+  .persp-svg .card { fill: var(--surface); stroke: var(--line); stroke-width: 1.2; transition: stroke 200ms ease, transform 200ms ease; }
+  .persp-svg .node:hover .card, .persp-svg .node:focus-visible .card { stroke: var(--accent); }
+  .persp-svg .node:hover ~ .spoke-of { stroke: var(--accent); }
+  .persp-svg text { font-family: var(--body); fill: var(--ink); }
+  .persp-svg .name { font-family: var(--display); font-weight: 700; font-size: 16px; }
+  .persp-svg .q { font-size: 12.5px; fill: var(--ink); }
+  .persp-svg .counts { font-size: 11px; fill: var(--ink-2); }
+  .persp-svg .pill { fill: var(--accent-soft); stroke: var(--accent); stroke-width: 1; }
+  .persp-svg .pill-t { font-family: var(--mono); font-size: 10px; letter-spacing: 0.1em; fill: var(--primary); font-weight: 500; }
+  .persp-svg .core { fill: var(--primary); }
+  .persp-svg .core-glow { fill: var(--accent); opacity: 0.14; }
+  .persp-svg .core-ring { fill: none; stroke: var(--accent); stroke-width: 2; opacity: 0.7; }
+  .persp-svg .core-eyebrow { font-family: var(--mono); font-size: 10px; letter-spacing: 0.14em; fill: var(--primary-ink); opacity: 0.8; }
+  .persp-svg .core-title { font-family: var(--display); font-weight: 700; font-size: 20px; fill: var(--primary-ink); }
+  .persp-svg .core-line { font-size: 11.5px; fill: var(--primary-ink); opacity: 0.92; }
+  @media (prefers-reduced-motion: reduce) { .persp-svg .flow { display: none; } }
 </style>
 </head>
 <body>
@@ -185,6 +220,7 @@
       <span>pharmaccelerator<span class="tld">.ai</span></span>
     </a>
     <nav class="nav-links" aria-label="Sections">
+      <a href="#perspectives">Perspectives</a>
       <a href="#contact">Contact</a>
     </nav>
   </div>
@@ -211,6 +247,31 @@
     </figure>
   </div>
 
+
+  <section id="perspectives" class="persp">
+    <div class="wrap">
+      <div class="section-head">
+        <h2>One medicine, seven value questions</h2>
+        <p>Every stakeholder reads the same clinical and cost evidence. The perspective sets which costs and benefits are allowed to count, and that is what turns one evidence base into seven different values.</p>
+      </div>
+
+      <figure class="persp-fig">
+        <svg class="persp-svg" id="persp-svg" viewBox="0 0 1200 1000" role="img" aria-label="Radial diagram: shared evidence about one medicine at the centre, connected to seven stakeholder perspectives around it: research, payers and HTA bodies, manufacturers, investors, society and policy makers, patients and caregivers, health systems and providers."></svg>
+        <figcaption>Evidence flows outward. Each connection is labelled with the perspective applied; each card states the question that perspective asks and what it counts.</figcaption>
+      </figure>
+
+      <ol class="persp-list" aria-label="The seven perspectives">
+        <li class="persp-core"><span class="k">One medicine</span><b>Shared evidence</b><span>clinical effect and safety · costs · outcomes and utilities</span></li>
+        <li><span class="k">Research</span><b>Universities and research centres</b><span>Is this research worth funding, and what value could it unlock? Counts value potential and evidence gaps.</span></li>
+        <li><span class="k">Payer</span><b>Payers and HTA bodies</b><span>Is it worth reimbursing at this price? Counts payer costs and QALYs gained.</span></li>
+        <li><span class="k">Commercial</span><b>Manufacturers</b><span>What price does the evidence support? Counts price, volume and time to access.</span></li>
+        <li><span class="k">Financial</span><b>Investors</b><span>What is the asset worth? Counts risk-adjusted cash flows.</span></li>
+        <li><span class="k">Societal</span><b>Society and policy makers</b><span>Is the welfare gain worth the cost to society? Counts productivity, carers and equity.</span></li>
+        <li><span class="k">Patient</span><b>Patients and caregivers</b><span>Does it improve what matters to me, at a cost I can bear? Counts quality of life and out-of-pocket cost.</span></li>
+        <li><span class="k">Provider</span><b>Health systems and providers</b><span>What does adoption cost, and what does it displace? Counts budget, staff time and beds.</span></li>
+      </ol>
+    </div>
+  </section>
 
   <section id="contact">
     <div class="wrap">
@@ -322,6 +383,108 @@
     draw();
     var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
     if (!reduce) setInterval(draw, 3200);
+  })();
+</script>
+<script>
+
+  (function () {
+    var svg = document.getElementById('persp-svg');
+    if (!svg) return;
+    var NS = 'http://www.w3.org/2000/svg';
+    var CX = 600, CY = 500, R = 390, CORE_R = 128, CARD_W = 252, CARD_H = 122;
+    function el(name, attrs, parent) {
+      var e = document.createElementNS(NS, name);
+      for (var k in attrs) e.setAttribute(k, attrs[k]);
+      (parent || svg).appendChild(e);
+      return e;
+    }
+    function txt(x, y, cls, s, parent, anchor) {
+      var t = el('text', { x: x, y: y, 'class': cls, 'text-anchor': anchor || 'start' }, parent);
+      t.textContent = s;
+      return t;
+    }
+    var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+    // Defs: soft shadow for cards
+    var defs = el('defs', {});
+    var f = el('filter', { id: 'persp-shadow', x: '-10%', y: '-10%', width: '120%', height: '130%' }, defs);
+    el('feDropShadow', { dx: 0, dy: 3, stdDeviation: 5, 'flood-color': '#10212E', 'flood-opacity': 0.10 }, f);
+
+    // Background dust: a faint, deterministic scatter
+    var seed = 19;
+    function rnd() { seed = (seed * 9301 + 49297) % 233280; return seed / 233280; }
+    var dust = el('g', { 'class': 'dust' });
+    for (var i = 0; i < 160; i++) {
+      var x = rnd() * 1200, y = rnd() * 1000;
+      var d = Math.hypot(x - CX, y - CY);
+      if (d < CORE_R + 30) continue;
+      el('circle', { cx: x.toFixed(1), cy: y.toFixed(1), r: (0.8 + rnd() * 2.2).toFixed(1) }, dust);
+    }
+    el('circle', { cx: CX, cy: CY, r: R, 'class': 'ring' });
+
+    var nodes = [
+      { key: 'RESEARCH',   name: 'Universities and research centres', q: ['Is this research worth funding,', 'and what value could it unlock?'], counts: 'counts: value potential, evidence gaps' },
+      { key: 'PAYER',      name: 'Payers and HTA bodies',            q: ['Is it worth reimbursing', 'at this price?'],                     counts: 'counts: payer costs, QALYs gained' },
+      { key: 'COMMERCIAL', name: 'Manufacturers',                    q: ['What price does', 'the evidence support?'],                     counts: 'counts: price, volume, time to access' },
+      { key: 'FINANCIAL',  name: 'Investors',                        q: ['What is the asset worth?'],                                     counts: 'counts: risk-adjusted cash flows' },
+      { key: 'SOCIETAL',   name: 'Society and policy makers',        q: ['Is the welfare gain worth', 'the cost to society?'],             counts: 'counts: productivity, carers, equity' },
+      { key: 'PATIENT',    name: 'Patients and caregivers',          q: ['Does it improve what matters to me,', 'at a cost I can bear?'],  counts: 'counts: quality of life, out-of-pocket' },
+      { key: 'PROVIDER',   name: 'Health systems and providers',     q: ['What does adoption cost,', 'and what does it displace?'],        counts: 'counts: budget, staff time, beds' }
+    ];
+
+    var spokes = el('g', { 'class': 'spokes' });
+    var pills = el('g', {});
+    var cards = el('g', {});
+    var flows = el('g', {});
+
+    nodes.forEach(function (n, i) {
+      var a = -Math.PI / 2 + i * (2 * Math.PI / nodes.length);
+      var ca = Math.cos(a), sa = Math.sin(a);
+      var px = CX + R * ca, py = CY + R * sa;              // card centre
+      var sx = CX + (CORE_R - 6) * ca, sy = CY + (CORE_R - 6) * sa; // start at core edge
+      // Control point: bend each spoke gently sideways so the ring reads as a wheel, not a starburst
+      var mx = (sx + px) / 2, my = (sy + py) / 2;
+      var bend = 46;
+      var qx = mx - sa * bend, qy = my + ca * bend;
+      var d = 'M' + sx.toFixed(1) + ' ' + sy.toFixed(1) + ' Q' + qx.toFixed(1) + ' ' + qy.toFixed(1) + ' ' + px.toFixed(1) + ' ' + py.toFixed(1);
+      el('path', { d: d, 'class': 'spoke', id: 'spoke-' + i }, spokes);
+
+      // Pill label at the curve's midpoint
+      var t = 0.3, u = 1 - t;
+      var lx = u * u * sx + 2 * u * t * qx + t * t * px, ly = u * u * sy + 2 * u * t * qy + t * t * py;
+      var pw = 22 + n.key.length * 7.4;
+      el('rect', { x: (lx - pw / 2).toFixed(1), y: (ly - 12).toFixed(1), width: pw.toFixed(1), height: 24, rx: 12, 'class': 'pill' }, pills);
+      txt(lx, ly + 3.5, 'pill-t', n.key, pills, 'middle');
+
+      // Card
+      var g = el('g', { 'class': 'node', tabindex: 0 }, cards);
+      var x0 = px - CARD_W / 2, y0 = py - CARD_H / 2;
+      el('rect', { x: x0, y: y0, width: CARD_W, height: CARD_H, rx: 14, 'class': 'card', filter: 'url(#persp-shadow)' }, g);
+      txt(x0 + 18, y0 + 30, 'name', n.name, g);
+      n.q.forEach(function (line, j) { txt(x0 + 18, y0 + 54 + j * 17, 'q', line, g); });
+      txt(x0 + 18, y0 + CARD_H - 16, 'counts', n.counts, g);
+
+      // Flowing dot along the spoke
+      if (!reduce) {
+        var dot = el('circle', { r: 4, 'class': 'flow' }, flows);
+        var am = el('animateMotion', { dur: (5 + (i % 3) * 0.8) + 's', begin: (i * 0.6) + 's', repeatCount: 'indefinite', path: d }, dot);
+      }
+    });
+    // Cards above flows so dots disappear under them
+    svg.appendChild(cards);
+
+    // Core: glow, hexagon, ring, text
+    var coreG = el('g', {});
+    el('circle', { cx: CX, cy: CY, r: CORE_R + 34, 'class': 'core-glow' }, coreG);
+    var pts = [];
+    for (var k = 0; k < 6; k++) { var t = -Math.PI / 2 + k * Math.PI / 3; pts.push((CX + CORE_R * Math.cos(t)).toFixed(1) + ',' + (CY + CORE_R * Math.sin(t)).toFixed(1)); }
+    el('polygon', { points: pts.join(' '), 'class': 'core' }, coreG);
+    el('circle', { cx: CX, cy: CY, r: CORE_R - 22, 'class': 'core-ring' }, coreG);
+    txt(CX, CY - 40, 'core-eyebrow', 'ONE MEDICINE', coreG, 'middle');
+    txt(CX, CY - 12, 'core-title', 'Shared evidence', coreG, 'middle');
+    txt(CX, CY + 12, 'core-line', 'clinical effect and safety', coreG, 'middle');
+    txt(CX, CY + 29, 'core-line', 'acquisition and care costs', coreG, 'middle');
+    txt(CX, CY + 46, 'core-line', 'outcomes, utilities, epidemiology', coreG, 'middle');
   })();
 </script>
 </body>
