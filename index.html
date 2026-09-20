@@ -93,12 +93,12 @@
   @media (max-width: 640px) { .nav-links { display: none; } }
 
   /* Hero */
-  .hero { padding-block: 72px 56px; display: grid; grid-template-columns: minmax(0, 7fr) minmax(0, 5fr); gap: 48px; align-items: center; }
+  .hero { padding-block: 72px 40px; display: grid; grid-template-columns: 1fr; gap: 44px; align-items: start; }
   @media (max-width: 860px) { .hero { grid-template-columns: 1fr; padding-block: 48px 40px; } }
   .eyebrow { font-family: var(--mono); font-size: 0.8rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--primary); margin: 0 0 18px; }
   h1 { font-family: var(--display); font-weight: 800; font-size: clamp(2.4rem, 5.6vw, 4.4rem); line-height: 1.02; letter-spacing: -0.035em; margin: 0 0 22px; text-wrap: balance; }
   h1 em { font-style: normal; color: var(--primary); }
-  .lede { font-size: 1.2rem; color: var(--ink-2); max-width: 34em; margin: 0 0 30px; }
+  .lede { font-size: 1.2rem; color: var(--ink-2); max-width: 34em; margin: 0; }
   .cta-row { display: flex; flex-wrap: wrap; gap: 14px; align-items: center; }
   .btn { display: inline-flex; align-items: center; gap: 10px; padding: 14px 22px; border-radius: 8px; font-weight: 600; text-decoration: none; font-size: 1rem; border: 1px solid transparent; transition: transform 120ms ease, background 120ms ease; }
   .btn-primary { background: var(--primary); color: var(--primary-ink); }
@@ -107,7 +107,7 @@
   .btn-ghost:hover { background: var(--surface); }
 
   /* Cost-effectiveness plane */
-  .plane-card { background: var(--surface); border: 1px solid var(--line); border-radius: 14px; padding: 18px 18px 14px; max-width: 100%; }
+  .plane-card { background: var(--surface); border: 1px solid var(--line); border-radius: 14px; padding: 18px 18px 14px; max-width: 720px; width: 100%; margin: 0; }
   .plane-head { display: flex; justify-content: space-between; gap: 12px; font-family: var(--mono); font-size: 0.72rem; color: var(--ink-2); margin-bottom: 10px; letter-spacing: 0.04em; }
   .plane { width: 100%; height: auto; display: block; }
   .plane .axis { stroke: var(--line); stroke-width: 1.5; }
@@ -232,12 +232,6 @@
       <p class="eyebrow">AI models for the economic value of medicines</p>
       <h1>We train AI models that understand <em>what a medicine is worth</em>.</h1>
       <p class="lede">Pharmaccelerator trains domain models on health economics and outcomes research: HTA appraisals, economic evaluations, pricing and reimbursement decisions, and real-world outcomes. So that payers, manufacturers, investors and health systems can each assess the value of a medicine from their own perspective, with the evidence in view.</p>
-      <div class="cta-row">
-        <a class="btn btn-primary" href="mailto:contact@pharmaccelerator.ai?subject=Pharmaccelerator%20inquiry">Talk to us
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
-        </a>
-        <a class="btn btn-ghost" href="#contact">Contact</a>
-      </div>
     </div>
 
     <figure class="plane-card" aria-label="Illustrative cost-effectiveness plane: incremental cost against incremental QALYs, with a willingness-to-pay threshold line and a cloud of probabilistic sensitivity analysis results">
