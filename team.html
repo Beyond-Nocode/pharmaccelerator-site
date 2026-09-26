@@ -257,8 +257,10 @@
   .member a:hover { text-decoration: underline; }
   .remote { padding-block: 40px 72px; }
   .remote .section-head { margin-bottom: 20px; }
-  .remote-list { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 12px; margin: 0; padding: 0; list-style: none; }
-  .remote-list li { background: var(--surface); border: 1px solid var(--line); border-radius: 12px; padding: 14px 16px; display: grid; gap: 2px; }
+  .remote-list { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 12px; margin: 0; padding: 0; list-style: none; }
+  .remote-list li { background: var(--surface); border: 1px solid var(--line); border-radius: 12px; padding: 14px 16px; display: flex; align-items: center; gap: 14px; }
+  .remote-list li div { display: grid; gap: 2px; min-width: 0; }
+  .portrait.small { width: 64px; height: 64px; border-width: 3px; flex: none; }
   .remote-list b { font-family: var(--display); font-weight: 700; font-size: 1.02rem; letter-spacing: -0.01em; }
   .remote-list span { color: var(--ink-2); font-size: 0.9rem; }
 </style>
@@ -273,10 +275,10 @@
   <section class="remote">
     <div class="wrap">
       <div class="section-head">
-        <h2>Remote team</h2>
+        <h2>Support team</h2>
         <p>Engineering and delivery capacity that scales with each project.</p>
       </div>
-      <ul class="remote-list"><li><b>Maria Clara Lins</b><span>Project Manager</span></li><li><b>Luiz Correa</b><span>Software Development Lead</span></li><li><b>José Marinho</b><span>AI Engineer</span></li><li><b>Thiago Bonfim</b><span>Software Developer</span></li><li><b>Gabriel Andrade</b><span>Software Developer</span></li></ul>
+      <ul class="remote-list"><li><img class="portrait small" src="/team/mariaclara.jpg" alt="Portrait of Maria Clara Lins" width="800" height="800" loading="lazy"><div><b>Maria Clara Lins</b><span>Project Manager</span></div></li><li><img class="portrait small" src="/team/luiz.jpg" alt="Portrait of Luiz Correa" width="800" height="800" loading="lazy"><div><b>Luiz Correa</b><span>Software Development Lead</span></div></li><li><img class="portrait small" src="/team/jose.jpg" alt="Portrait of José Marinho" width="800" height="800" loading="lazy"><div><b>José Marinho</b><span>AI Engineer</span></div></li><li><img class="portrait small" src="/team/thiago.jpg" alt="Portrait of Thiago Bomfim" width="800" height="800" loading="lazy"><div><b>Thiago Bomfim</b><span>Software Developer</span></div></li><li><img class="portrait small" src="/team/gabriel.jpg" alt="Portrait of Gabriel Almeida" width="800" height="800" loading="lazy"><div><b>Gabriel Almeida</b><span>Software Developer</span></div></li></ul>
     </div>
   </section>
 </main>
