@@ -1,0 +1,301 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Team — Pharmaccelerator</title>
+<meta name="description" content="The Pharmaccelerator team: health economics, AI engineering and pharmaceutical sciences, based in Lisbon.">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<meta property="og:title" content="Pharmaccelerator team">
+<meta property="og:description" content="AI models for the economic value of medicines.">
+<meta property="og:url" content="https://pharmaccelerator.ai/team.html">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+  :root {
+    --ground: #F6F8F9;
+    --surface: #FFFFFF;
+    --ink: #10212E;
+    --ink-2: #4E5F6A;
+    --line: #D6DEE2;
+    --grid: #E6ECEF;
+    --primary: #0B5C6B;
+    --primary-ink: #FFFFFF;
+    --accent: #37B6C6;
+    --accent-soft: #DDF2F5;
+    --dot: #37B6C6;
+    --dot-out: #B8C4CB;
+    --display: "Bricolage Grotesque", "Helvetica Neue", Arial, sans-serif;
+    --body: "IBM Plex Sans", "Segoe UI", Helvetica, Arial, sans-serif;
+    --mono: "IBM Plex Mono", ui-monospace, "SF Mono", Menlo, monospace;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --ground: #0C1720;
+      --surface: #12212C;
+      --ink: #EAF1F4;
+      --ink-2: #9FB1BB;
+      --line: #23343F;
+      --grid: #1C2C37;
+      --primary: #37B6C6;
+      --primary-ink: #06232A;
+      --accent: #5FD0DD;
+      --accent-soft: #123640;
+      --dot: #5FD0DD;
+      --dot-out: #3B4E5A;
+    }
+  }
+  :root[data-theme="dark"] {
+    --ground: #0C1720;
+    --surface: #12212C;
+    --ink: #EAF1F4;
+    --ink-2: #9FB1BB;
+    --line: #23343F;
+    --grid: #1C2C37;
+    --primary: #37B6C6;
+    --primary-ink: #06232A;
+    --accent: #5FD0DD;
+    --accent-soft: #123640;
+    --dot: #5FD0DD;
+    --dot-out: #3B4E5A;
+  }
+
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    background: var(--ground);
+    color: var(--ink);
+    font-family: var(--body);
+    font-size: 17px;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+  }
+  a { color: inherit; }
+  a:focus-visible, button:focus-visible { outline: 3px solid var(--accent); outline-offset: 3px; }
+
+  .wrap { max-width: 1120px; margin: 0 auto; padding-inline: 24px; }
+  @media (max-width: 480px) { .wrap { padding-inline: 16px; } }
+
+  /* Header */
+  header {
+    position: sticky; top: env(safe-area-inset-top, 0px); z-index: 10;
+    background: color-mix(in srgb, var(--ground) 88%, transparent);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid var(--line);
+  }
+  .nav { display: flex; align-items: center; justify-content: space-between; gap: 24px; padding-block: 12px; }
+  .brand { display: inline-flex; align-items: center; gap: 14px; text-decoration: none; font-family: var(--display); font-weight: 700; font-size: 2.4rem; letter-spacing: -0.02em; line-height: 1; }
+  .brand svg { width: 96px; height: 70px; flex: none; }
+  @media (max-width: 600px) {
+    .brand { gap: 10px; font-size: 1.5rem; }
+    .brand svg { width: 60px; height: 44px; }
+  }
+  @media (max-width: 300px) {
+    .brand { gap: 8px; font-size: 1.05rem; }
+    .brand svg { width: 40px; height: 29px; }
+  }
+  .brand .tld { color: var(--accent); }
+  .nav-links { display: flex; gap: 22px; font-size: 0.95rem; font-weight: 500; }
+  .nav-links a { text-decoration: none; color: var(--ink-2); }
+  .nav-links a:hover { color: var(--ink); }
+  @media (max-width: 640px) { .nav-links { display: none; } }
+
+  /* Hero */
+  .hero { padding-block: 72px 40px; display: grid; grid-template-columns: 1fr; gap: 44px; align-items: start; }
+  @media (max-width: 860px) { .hero { grid-template-columns: 1fr; padding-block: 48px 40px; } }
+  .eyebrow { font-family: var(--mono); font-size: 0.8rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--primary); margin: 0 0 18px; }
+  h1 { font-family: var(--display); font-weight: 800; font-size: clamp(2.4rem, 5.6vw, 4.4rem); line-height: 1.02; letter-spacing: -0.035em; margin: 0 0 22px; text-wrap: balance; }
+  h1 em { font-style: normal; color: var(--primary); }
+  .lede { font-size: 1.2rem; color: var(--ink-2); max-width: 58em; margin: 0; }
+  .cta-row { display: flex; flex-wrap: wrap; gap: 14px; align-items: center; }
+  .btn { display: inline-flex; align-items: center; gap: 10px; padding: 14px 22px; border-radius: 8px; font-weight: 600; text-decoration: none; font-size: 1rem; border: 1px solid transparent; transition: transform 120ms ease, background 120ms ease; }
+  .btn-primary { background: var(--primary); color: var(--primary-ink); }
+  .btn-primary:hover { transform: translateY(-1px); }
+  .btn-ghost { border-color: var(--line); color: var(--ink); background: transparent; }
+  .btn-ghost:hover { background: var(--surface); }
+
+  /* Cost-effectiveness plane */
+  .plane-card { background: var(--surface); border: 1px solid var(--line); border-radius: 14px; padding: 18px 20px 14px; max-width: 100%; width: 100%; margin: 0; }
+  .plane-head { display: flex; justify-content: space-between; gap: 12px; font-family: var(--mono); font-size: 0.72rem; color: var(--ink-2); margin-bottom: 10px; letter-spacing: 0.04em; }
+  .plane { width: 100%; height: auto; display: block; }
+  .plane .axis { stroke: var(--line); stroke-width: 1.5; }
+  .plane .grid { stroke: var(--grid); stroke-width: 1; }
+  .plane .thr { stroke: var(--primary); stroke-width: 2; stroke-dasharray: 6 5; }
+  .plane .lbl { font-family: var(--mono); font-size: 10px; fill: var(--ink-2); }
+  .plane .lbl-thr { font-family: var(--mono); font-size: 10px; fill: var(--primary); }
+  .plane .pt { fill: var(--dot); opacity: 0.75; transition: cx 900ms ease, cy 900ms ease; }
+  .plane .pt.out { fill: var(--dot-out); opacity: 0.8; }
+  .plane .mean { fill: var(--ink); stroke: var(--surface); stroke-width: 2; }
+  .plane-foot { display: flex; justify-content: space-between; gap: 12px; flex-wrap: wrap; font-family: var(--mono); font-size: 0.72rem; color: var(--ink-2); margin-top: 10px; }
+  .plane-foot b { color: var(--ink); font-weight: 500; font-variant-numeric: tabular-nums; }
+
+  /* Sections */
+  section { padding-block: 24px 72px; }
+  .section-head { display: grid; grid-template-columns: minmax(0, 4fr) minmax(0, 8fr); gap: 32px; margin-bottom: 40px; }
+  @media (max-width: 760px) { .section-head { grid-template-columns: 1fr; gap: 12px; } }
+  h2 { font-family: var(--display); font-weight: 700; font-size: clamp(1.7rem, 3.2vw, 2.4rem); letter-spacing: -0.025em; line-height: 1.1; margin: 0; text-wrap: balance; }
+  .section-head p { margin: 0; color: var(--ink-2); font-size: 1.08rem; max-width: 40em; }
+
+  .grid-3 { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 20px; }
+  @media (max-width: 860px) { .grid-3 { grid-template-columns: 1fr; } }
+  .cap { background: var(--surface); border: 1px solid var(--line); border-radius: 12px; padding: 26px 24px; display: flex; flex-direction: column; gap: 12px; }
+  .cap .tag { font-family: var(--mono); font-size: 0.74rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--primary); }
+  .cap h3 { font-family: var(--display); font-size: 1.3rem; font-weight: 700; margin: 0; letter-spacing: -0.02em; }
+  .cap p { margin: 0; color: var(--ink-2); font-size: 0.98rem; }
+
+  /* Stakeholder strip */
+  .pipeline { border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); padding-block: 40px; }
+  .stages { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 0; }
+  @media (max-width: 860px) { .stages { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+  @media (max-width: 520px) { .stages { grid-template-columns: 1fr; } }
+  .stage { padding: 14px 18px 14px 16px; border-left: 2px solid var(--accent); margin-bottom: 8px; }
+  .stage .k { font-family: var(--mono); font-size: 0.72rem; color: var(--ink-2); letter-spacing: 0.08em; text-transform: uppercase; display: block; margin-bottom: 6px; }
+  .stage .n { font-family: var(--display); font-weight: 700; font-size: 1.08rem; letter-spacing: -0.01em; display: block; }
+  .stage .d { font-size: 0.9rem; color: var(--ink-2); display: block; margin-top: 4px; }
+
+  /* Approach */
+  .approach { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 20px; }
+  @media (max-width: 860px) { .approach { grid-template-columns: 1fr; } }
+  .principle { padding: 22px 0; border-top: 1px solid var(--line); display: grid; grid-template-columns: 36px minmax(0, 1fr); gap: 16px; }
+  .principle .glyph { width: 28px; height: 28px; color: var(--primary); }
+  .principle h3 { font-family: var(--display); font-size: 1.12rem; font-weight: 700; margin: 0 0 6px; letter-spacing: -0.015em; }
+  .principle p { margin: 0; color: var(--ink-2); font-size: 0.96rem; }
+
+  /* Contact */
+  .contact { background: var(--primary); color: var(--primary-ink); border-radius: 18px; padding: clamp(32px, 6vw, 64px); display: grid; grid-template-columns: minmax(0, 7fr) minmax(0, 5fr); gap: 32px; align-items: center; }
+  @media (max-width: 860px) { .contact { grid-template-columns: 1fr; } }
+  .contact h2 { color: inherit; }
+  .contact p { margin: 12px 0 0; opacity: 0.85; max-width: 32em; }
+  .mail { display: inline-flex; flex-direction: column; gap: 6px; text-decoration: none; color: inherit; font-family: var(--mono); font-size: clamp(0.9rem, 1.7vw, 1.08rem); padding: 20px 22px; border: 1px solid color-mix(in srgb, currentColor 35%, transparent); border-radius: 12px; background: color-mix(in srgb, currentColor 8%, transparent); transition: background 120ms ease; overflow-wrap: anywhere; }
+  .mail:hover { background: color-mix(in srgb, currentColor 16%, transparent); }
+  .mail small { font-family: var(--body); font-size: 0.8rem; letter-spacing: 0.08em; text-transform: uppercase; opacity: 0.75; }
+
+  footer { padding-block: 36px 48px; display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 12px 24px; font-size: 0.88rem; color: var(--ink-2); font-family: var(--mono); border-top: 1px solid var(--line); }
+  .legal { display: inline-flex; align-items: center; gap: 10px; flex-wrap: wrap; }
+  .flag { width: 22px; height: 15px; border-radius: 2px; flex: none; }
+
+  @media (prefers-reduced-motion: reduce) {
+    .plane .pt { transition: none; }
+    .btn { transition: none; }
+  }
+
+  /* Perspectives diagram */
+  .persp { padding-block: 56px 72px; }
+  .persp-fig { margin: 0; }
+  .persp-svg { display: block; width: 100%; height: auto; color: var(--ink); }
+  .persp-fig figcaption { margin-top: 12px; color: var(--ink-2); font-size: 0.92rem; max-width: 60em; }
+  .persp-list { display: none; list-style: none; margin: 0; padding: 0; gap: 12px; grid-template-columns: 1fr; }
+  .persp-list li { background: var(--surface); border: 1px solid var(--line); border-radius: 12px; padding: 16px 18px; display: grid; gap: 4px; }
+  .persp-list li .k { font-family: var(--mono); font-size: 0.7rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--primary); }
+  .persp-list li b { font-family: var(--display); font-size: 1.05rem; letter-spacing: -0.01em; }
+  .persp-list li span:last-child { color: var(--ink-2); font-size: 0.92rem; }
+  .persp-list .persp-core { background: var(--primary); border-color: var(--primary); color: var(--primary-ink); }
+  .persp-list .persp-core .k, .persp-list .persp-core span:last-child { color: inherit; opacity: 0.85; }
+  @media (max-width: 720px) { .persp-fig { display: none; } .persp-list { display: grid; } }
+  /* SVG parts */
+  .persp-svg .dust { fill: var(--ink-2); opacity: 0.18; }
+  .persp-svg .ring { fill: none; stroke: var(--line); stroke-width: 1; stroke-dasharray: 2 6; }
+  .persp-svg .spoke { fill: none; stroke: var(--line); stroke-width: 2; transition: stroke 200ms ease; }
+  .persp-svg .flow { fill: var(--accent); }
+  .persp-svg .card { fill: var(--surface); stroke: var(--line); stroke-width: 1.2; transition: stroke 200ms ease, transform 200ms ease; }
+  .persp-svg .node:hover .card, .persp-svg .node:focus-visible .card { stroke: var(--accent); }
+  .persp-svg .node:hover ~ .spoke-of { stroke: var(--accent); }
+  .persp-svg text { font-family: var(--body); fill: var(--ink); }
+  .persp-svg .name { font-family: var(--display); font-weight: 700; font-size: 16px; }
+  .persp-svg .q { font-size: 12.5px; fill: var(--ink); }
+  .persp-svg .counts { font-size: 11px; fill: var(--ink-2); }
+  .persp-svg .pill { fill: var(--accent-soft); stroke: var(--accent); stroke-width: 1; }
+  .persp-svg .pill-t { font-family: var(--mono); font-size: 10px; letter-spacing: 0.1em; fill: var(--primary); font-weight: 500; }
+  .persp-svg .core { fill: var(--primary); }
+  .persp-svg .core-glow { fill: var(--accent); opacity: 0.14; }
+  .persp-svg .core-ring { fill: none; stroke: var(--accent); stroke-width: 2; opacity: 0.7; }
+  .persp-svg .core-eyebrow { font-family: var(--mono); font-size: 10px; letter-spacing: 0.14em; fill: var(--primary-ink); opacity: 0.8; }
+  .persp-svg .core-title { font-family: var(--display); font-weight: 700; font-size: 20px; fill: var(--primary-ink); }
+  .persp-svg .core-line { font-size: 11.5px; fill: var(--primary-ink); opacity: 0.92; }
+  @media (prefers-reduced-motion: reduce) { .persp-svg .flow { display: none; } }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap nav">
+    <a class="brand" href="/" aria-label="Pharmaccelerator.ai home">
+      <svg viewBox="0 0 150 100" aria-hidden="true">
+        <polygon points="50,6 88,28 88,72 50,94 12,72 12,28" fill="none" stroke="var(--primary)" stroke-width="9" stroke-linejoin="round"/>
+        <circle cx="50" cy="50" r="17" fill="none" stroke="var(--primary)" stroke-width="6" opacity="0.55"/>
+        <path d="M88 50 H128 M110 32 L128 50 L110 68" fill="none" stroke="var(--accent)" stroke-width="9" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+      <span>pharmaccelerator<span class="tld">.ai</span></span>
+    </a>
+    <nav class="nav-links" aria-label="Sections">
+      <a href="/#perspectives">Perspectives</a>
+      <a href="/team.html" aria-current="page">Team</a>
+      <a href="/#contact">Contact</a>
+    </nav>
+  </div>
+</header>
+
+<style>
+  .team-hero { padding-block: 64px 24px; }
+  .team-hero h1 { font-family: var(--display); font-weight: 800; font-size: clamp(2.2rem, 5vw, 3.6rem); letter-spacing: -0.035em; line-height: 1.02; margin: 0 0 16px; }
+  .team-hero p { color: var(--ink-2); font-size: 1.15rem; max-width: 46em; margin: 0; }
+  .team-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 22px; padding-block: 32px 8px; }
+  @media (max-width: 600px) { .team-grid { grid-template-columns: 1fr; } }
+  .member { background: var(--surface); border: 1px solid var(--line); border-radius: 16px; padding: 26px 24px 24px; display: flex; flex-direction: column; gap: 14px; }
+  .member.lead { grid-column: 1 / -1; display: grid; grid-template-columns: 200px minmax(0, 1fr); gap: 28px; align-items: start; }
+  @media (max-width: 600px) { .member.lead { grid-template-columns: 1fr; } }
+  .portrait { width: 132px; height: 132px; border-radius: 50%; object-fit: cover; background: #CFCFCF; border: 4px solid var(--surface); box-shadow: 0 0 0 1px var(--line), 0 6px 18px rgba(16,33,46,0.10); filter: grayscale(1); }
+  .member.lead .portrait { width: 200px; height: 200px; }
+  .portrait.initials { filter: none; display: grid; place-items: center; font-family: var(--display); font-weight: 700; font-size: 2.2rem; color: var(--primary); background: var(--accent-soft); letter-spacing: -0.02em; }
+  .member .role { font-family: var(--mono); font-size: 0.72rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--primary); }
+  .member h2 { font-family: var(--display); font-size: 1.35rem; font-weight: 700; letter-spacing: -0.02em; margin: 2px 0 0; }
+  .member.lead h2 { font-size: 1.9rem; }
+  .member ul { margin: 0; padding: 0; list-style: none; display: grid; gap: 6px; color: var(--ink-2); font-size: 0.95rem; }
+  .member ul li { padding-left: 14px; position: relative; }
+  .member ul li::before { content: ""; position: absolute; left: 0; top: 0.62em; width: 6px; height: 6px; border-radius: 1px; background: var(--accent); transform: rotate(45deg); }
+  .member a { color: var(--primary); text-decoration: none; }
+  .member a:hover { text-decoration: underline; }
+  .remote { padding-block: 40px 72px; }
+  .remote .section-head { margin-bottom: 20px; }
+  .remote-list { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 12px; margin: 0; padding: 0; list-style: none; }
+  .remote-list li { background: var(--surface); border: 1px solid var(--line); border-radius: 12px; padding: 14px 16px; display: grid; gap: 2px; }
+  .remote-list b { font-family: var(--display); font-weight: 700; font-size: 1.02rem; letter-spacing: -0.01em; }
+  .remote-list span { color: var(--ink-2); font-size: 0.9rem; }
+</style>
+
+<main id="top">
+  <div class="wrap team-hero">
+    <p class="eyebrow">Team</p>
+    <h1>Health economics, AI engineering and pharmaceutical sciences, in one room.</h1>
+    <p>A small team in Lisbon that has priced medicines, trained models and curated the data both depend on, working with a remote engineering group.</p>
+  </div>
+  <div class="wrap team-grid">
+    <article class="member lead"><img class="portrait" src="/team/elmo.jpg" alt="Portrait of Elmo Gomes" width="800" height="800" loading="lazy"><div><p class="role">Founder</p><h2>Elmo Gomes</h2><ul><li>Former global executive at a leading pharmaceutical company for over 20 years</li><li>PhD in Economics, University of Hertfordshire, UK</li><li>Health Economics, Harvard University</li><li>Technology development for several startups, including Playback Aps, Clime GmbH, MedIAudit and Calendafy Plt</li><li><a href="mailto:elmo.gomes@pharmaccelerator.ai">elmo.gomes@pharmaccelerator.ai</a></li></ul></div></article><article class="member"><img class="portrait" src="/team/guilherme.jpg" alt="Portrait of Guilherme Bassi" width="800" height="800" loading="lazy"><p class="role">CTO</p><h2>Guilherme Bassi</h2><ul><li>Software developer and AI engineer</li><li>BSc in Technology, Estácio</li><li>Previously at Comboios de Portugal</li></ul></article><article class="member"><div class="portrait initials" role="img" aria-label="Gabriela Esteves">GE</div><p class="role">Generative AI Evaluator</p><h2>Gabriela Esteves</h2><ul><li>RLHF and LLM training</li><li>Multilingual AI specialist and model training QA</li><li>Trainer in Portuguese, English, French and Italian</li></ul></article><article class="member"><img class="portrait" src="/team/juliana.jpg" alt="Portrait of Juliana Mello" width="800" height="800" loading="lazy"><p class="role">AI Data Curator Intern · Pharmaceutical Sciences</p><h2>Juliana Mello</h2><ul><li>Pharmaceutical Sciences BSc student</li></ul></article><article class="member"><img class="portrait" src="/team/miguel.jpg" alt="Portrait of Miguel Gomes" width="800" height="800" loading="lazy"><p class="role">AI Data Curator Intern · Economics and Finance</p><h2>Miguel Gomes</h2><ul><li>MSc student</li><li>BSc in Finance, ISEG, Universidade de Lisboa</li></ul></article>
+  </div>
+  <section class="remote">
+    <div class="wrap">
+      <div class="section-head">
+        <h2>Remote team</h2>
+        <p>Engineering and delivery capacity that scales with each project.</p>
+      </div>
+      <ul class="remote-list"><li><b>Maria Clara Lins</b><span>Project Manager</span></li><li><b>Luiz Correa</b><span>Software Development Lead</span></li><li><b>José Marinho</b><span>AI Engineer</span></li><li><b>Thiago Bonfim</b><span>Software Developer</span></li><li><b>Gabriel Andrade</b><span>Software Developer</span></li></ul>
+    </div>
+  </section>
+</main>
+
+<footer class="wrap">
+  <span class="legal">
+    <svg class="flag" viewBox="0 0 600 400" aria-label="Portugal" role="img">
+      <rect width="600" height="400" fill="#FF0000"/>
+      <rect width="240" height="400" fill="#006600"/>
+      <circle cx="240" cy="200" r="70" fill="#FFCC00"/>
+      <circle cx="240" cy="200" r="56" fill="#FF0000"/>
+      <rect x="216" y="172" width="48" height="56" rx="8" fill="#FFFFFF"/>
+      <rect x="222" y="178" width="36" height="44" rx="6" fill="#0033A0"/>
+    </svg>
+    <span>Quantum Reasons - Unipessoal Lda &middot; NIF 519270932 &middot; Lisbon</span>
+  </span>
+  <span>&copy; 2026 Pharmaccelerator</span>
+</footer>
+</body>
+</html>
