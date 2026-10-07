@@ -3,11 +3,11 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>Pharmaccelerator — AI models for the economic value of medicines</title>
-<meta name="description" content="Pharmaccelerator trains AI models on health economics and outcomes research so payers, manufacturers, investors and health systems can assess the value of a medicine.">
+<title>Pharmaccelerator — AI models for the pharmaceutical industry</title>
+<meta name="description" content="Pharmaccelerator trains AI models for medical affairs, regulatory, market access, supply chain, commercial and strategy teams, implemented on-premises or in a private cloud under the company's control and governance.">
 <link rel="icon" href="/favicon.svg" type="image/svg+xml">
 <meta property="og:title" content="Pharmaccelerator">
-<meta property="og:description" content="AI models for the economic value of medicines.">
+<meta property="og:description" content="AI models fully trained for the work of a pharmaceutical company, under your control.">
 <meta property="og:url" content="https://pharmaccelerator.ai/">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
@@ -129,6 +129,17 @@
   .plane-foot { display: flex; justify-content: space-between; gap: 12px; flex-wrap: wrap; font-family: var(--mono); font-size: 0.72rem; color: var(--ink-2); margin-top: 10px; }
   .plane-foot b { color: var(--ink); font-weight: 500; font-variant-numeric: tabular-nums; }
 
+  /* Applications grid (hero) */
+  .apps { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 14px; }
+  @media (max-width: 900px) { .apps { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+  @media (max-width: 560px) { .apps { grid-template-columns: 1fr; } }
+  .app { background: var(--surface); border: 1px solid var(--line); border-radius: 12px; padding: 18px 18px 16px; display: grid; gap: 8px; }
+  .app .tag { font-family: var(--mono); font-size: 0.74rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--primary); }
+  .app p { margin: 0; color: var(--ink-2); font-size: 0.95rem; line-height: 1.5; }
+  .grid-4 { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 20px; }
+  @media (max-width: 1000px) { .grid-4 { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+  @media (max-width: 560px) { .grid-4 { grid-template-columns: 1fr; } }
+
   /* Sections */
   section { padding-block: 24px 72px; }
   .section-head { display: grid; grid-template-columns: minmax(0, 4fr) minmax(0, 8fr); gap: 32px; margin-bottom: 40px; }
@@ -230,7 +241,7 @@
     </a>
     <nav class="nav-links" aria-label="Sections">
       <a href="#perspectives">Perspectives</a>
-      <a href="#ownership">Ownership</a>
+      <a href="#control">Control</a>
       <a href="/team.html">Team</a>
       <a href="#contact">Contact</a>
     </nav>
@@ -240,16 +251,19 @@
 <main id="top">
   <div class="wrap hero">
     <div>
-      <p class="eyebrow">AI models for the economic value of medicines</p>
-      <h1>We train AI models that understand <em>what a medicine is worth</em>.</h1>
-      <p class="lede">Pharmaccelerator trains domain models on health economics and outcomes research: HTA appraisals, economic evaluations, pricing and reimbursement decisions, and real-world outcomes. So that payers, manufacturers, investors and health systems can each assess the value of a medicine from their own perspective, with the evidence in view.</p>
+      <p class="eyebrow">AI models for the pharmaceutical industry</p>
+      <h1>AI models fully trained for <em>the work of a pharmaceutical company</em>.</h1>
+      <p class="lede">Pharmaccelerator trains domain models for medical affairs, regulatory, market access, supply chain, commercial and strategy teams. Each model is implemented on-premises or in a private cloud, where the company's information stays fully under its control, with governance and industry policies built in.</p>
     </div>
 
-    <figure class="plane-card" aria-label="Illustrative cost-effectiveness plane: incremental cost against incremental QALYs, with a willingness-to-pay threshold line and a cloud of probabilistic sensitivity analysis results">
-      <div class="plane-head"><span>COST-EFFECTIVENESS PLANE</span><span>PSA &middot; ILLUSTRATIVE</span></div>
-      <svg class="plane" id="plane" viewBox="0 0 760 300" aria-hidden="true"></svg>
-      <div class="plane-foot"><span>P(cost-effective at threshold): <b id="pce">0%</b></span><span>Mean ICER: <b id="icer">&mdash;</b> / QALY</span></div>
-    </figure>
+    <div class="apps" aria-label="Application areas">
+      <article class="app"><span class="tag">Medical affairs</span><p>Scientific response drafting, field insight synthesis, publication and congress monitoring.</p></article>
+      <article class="app"><span class="tag">Regulatory</span><p>Submission authoring support across CTD modules, agency query responses, labelling consistency checks.</p></article>
+      <article class="app"><span class="tag">Market access</span><p>HTA appraisal analysis, value dossiers, pricing and reimbursement scenarios by market.</p></article>
+      <article class="app"><span class="tag">Supply chain</span><p>Demand and shortage signals, batch record review, supplier and quality documentation.</p></article>
+      <article class="app"><span class="tag">Commercial</span><p>Account and territory intelligence, compliant content review, launch readiness.</p></article>
+      <article class="app"><span class="tag">Strategy</span><p>Portfolio and asset assessment, competitive intelligence, scenario planning.</p></article>
+    </div>
   </div>
 
 
@@ -257,7 +271,7 @@
     <div class="wrap">
       <div class="section-head">
         <h2>One medicine, seven value questions</h2>
-        <p>Every stakeholder reads the same clinical and cost evidence. The perspective sets which costs and benefits are allowed to count, and that is what turns one evidence base into seven different values.</p>
+        <p>Market access is where our models started. Every stakeholder reads the same clinical and cost evidence; the perspective sets which costs and benefits are allowed to count, and that is what turns one evidence base into seven different values.</p>
       </div>
 
       <figure class="persp-fig">
@@ -277,27 +291,32 @@
     </div>
   </section>
 
-  <section id="ownership" class="own">
+  <section id="control" class="own">
     <div class="wrap">
       <div class="section-head">
-        <h2>Your model, on your infrastructure</h2>
-        <p>Every model we train is delivered as a product that the client organisation owns in full. It runs where you decide, on hardware you agreed to, inside your own boundary.</p>
+        <h2>Under your control, by design</h2>
+        <p>Every model is delivered as a product the company owns, implemented where its information already lives, and operated under the governance and industry policies the organisation is held to.</p>
       </div>
-      <div class="grid-3">
-        <article class="cap">
-          <span class="tag">Ownership</span>
-          <h3>Fully owned by you</h3>
-          <p>The trained model is yours: a product of your organisation, not a subscription to ours. You hold it, run it and decide what happens to it next.</p>
-        </article>
-        <article class="cap">
-          <span class="tag">Packaging</span>
-          <h3>Built for the agreed hardware</h3>
-          <p>A partner company specialised in model deployment packages each model into an optimised infrastructure, sized and tuned for the hardware and setup agreed with you.</p>
-        </article>
+      <div class="grid-4">
         <article class="cap">
           <span class="tag">Deployment</span>
           <h3>On-premises or private cloud</h3>
-          <p>Installed in your own data centre or in a private cloud of your choice, so confidential pricing, trial and negotiation data stay inside your environment.</p>
+          <p>Implemented in your own data centre or in a private cloud of your choice. Prompts, documents, outputs and weights stay inside your environment.</p>
+        </article>
+        <article class="cap">
+          <span class="tag">Control</span>
+          <h3>Information fully under your control</h3>
+          <p>Access, retention and monitoring follow your rules. No data leaves the boundary, and nothing is pooled with other companies.</p>
+        </article>
+        <article class="cap">
+          <span class="tag">Governance</span>
+          <h3>Governance and industry policies</h3>
+          <p>Role-based access, audit trails and model documentation, with the policies your industry works under applied: GxP and computer system validation, pharmacovigilance and promotional-code rules, GDPR and the EU AI Act.</p>
+        </article>
+        <article class="cap">
+          <span class="tag">Ownership</span>
+          <h3>A product you own</h3>
+          <p>The trained model is yours, not a subscription to us. A specialised partner packages it into an optimised infrastructure for the hardware and setup agreed with you.</p>
         </article>
       </div>
     </div>
@@ -308,8 +327,8 @@
       <div class="contact">
         <div>
           <p class="eyebrow" style="color: inherit; opacity: 0.8;">Get in touch</p>
-          <h2>Tell us which medicine, and whose value question you need to answer.</h2>
-          <p>We will come back with a view on the evidence available, what a trained model could add, and what it would take to build one.</p>
+          <h2>Tell us which team, and which decisions the model should support.</h2>
+          <p>We will come back with a view on the data you already hold, what a fully trained model could add, and what it would take to implement one inside your environment.</p>
         </div>
         <a class="mail" href="mailto:contact@pharmaccelerator.ai">
           <small>Email</small>
@@ -335,86 +354,6 @@
   <span>&copy; 2026 Pharmaccelerator</span>
 </footer>
 
-<script>
-  (function () {
-    var NS = 'http://www.w3.org/2000/svg';
-    var svg = document.getElementById('plane');
-    var pceEl = document.getElementById('pce');
-    var icerEl = document.getElementById('icer');
-
-    // Plot area inside the 760x300 viewBox.
-    var L = 48, R = 748, T = 16, B = 262;
-    // Axis ranges: incremental QALYs -0.4..1.2, incremental cost -20k..60k.
-    var qMin = -0.4, qMax = 1.2, cMin = -20000, cMax = 60000;
-    var threshold = 30000; // per QALY, willingness-to-pay line
-    function X(q) { return L + (q - qMin) / (qMax - qMin) * (R - L); }
-    function Y(c) { return B - (c - cMin) / (cMax - cMin) * (B - T); }
-    function el(name, attrs) {
-      var e = document.createElementNS(NS, name);
-      for (var k in attrs) e.setAttribute(k, attrs[k]);
-      svg.appendChild(e);
-      return e;
-    }
-
-    // Grid
-    [0, 20000, 40000].forEach(function (c) { el('line', { class: 'grid', x1: L, x2: R, y1: Y(c), y2: Y(c) }); });
-    [0.4, 0.8].forEach(function (q) { el('line', { class: 'grid', x1: X(q), x2: X(q), y1: T, y2: B }); });
-    // Axes through the origin
-    el('line', { class: 'axis', x1: L, x2: R, y1: Y(0), y2: Y(0) });
-    el('line', { class: 'axis', x1: X(0), x2: X(0), y1: T, y2: B });
-    // Threshold line: cost = threshold * QALY
-    var q0 = cMin / threshold, q1 = cMax / threshold;
-    if (q0 < qMin) q0 = qMin;
-    if (q1 > qMax) q1 = qMax;
-    el('line', { class: 'thr', x1: X(q0), y1: Y(q0 * threshold), x2: X(q1), y2: Y(q1 * threshold) });
-    var t = el('text', { class: 'lbl-thr', x: X(q1) - 4, y: Y(q1 * threshold) + 14, 'text-anchor': 'end' });
-    t.textContent = 'WTP 30k / QALY';
-    // Axis labels
-    var lx = el('text', { class: 'lbl', x: R, y: B + 26, 'text-anchor': 'end' }); lx.textContent = 'Incremental QALYs';
-    var ly = el('text', { class: 'lbl', x: 6, y: T + 8 }); ly.textContent = 'Incremental cost';
-    var l0 = el('text', { class: 'lbl', x: X(0) - 4, y: B + 12, 'text-anchor': 'end' }); l0.textContent = '0';
-    var l1 = el('text', { class: 'lbl', x: X(1), y: B + 12, 'text-anchor': 'middle' }); l1.textContent = '1.0';
-    var lc = el('text', { class: 'lbl', x: L - 4, y: Y(40000) + 3, 'text-anchor': 'end' }); lc.textContent = '40k';
-    var lc0 = el('text', { class: 'lbl', x: L - 4, y: Y(0) + 3, 'text-anchor': 'end' }); lc0.textContent = '0';
-
-    // Deterministic pseudo-random so the resting state is identical on every load.
-    var seed = 11;
-    function rnd() { seed = (seed * 9301 + 49297) % 233280; return seed / 233280; }
-    function gauss() { var u = rnd() || 1e-6, v = rnd(); return Math.sqrt(-2 * Math.log(u)) * Math.cos(2 * Math.PI * v); }
-
-    var N = 180, pts = [];
-    for (var i = 0; i < N; i++) pts.push(el('circle', { class: 'pt', r: 3 }));
-    var mean = el('circle', { class: 'mean', r: 5 });
-
-    var pass = 0;
-    function draw() {
-      // Cloud centre drifts slightly between passes to suggest re-sampling.
-      var mq = 0.52 + 0.06 * Math.sin(pass * 1.3), mc = 14000 + 2500 * Math.cos(pass * 0.9);
-      var sq = 0.22, sc = 11000, rho = 0.35;
-      var inside = 0, sumQ = 0, sumC = 0;
-      for (var i = 0; i < N; i++) {
-        var z1 = gauss(), z2 = gauss();
-        var q = mq + sq * z1;
-        var c = mc + sc * (rho * z1 + Math.sqrt(1 - rho * rho) * z2);
-        sumQ += q; sumC += c;
-        var ok = (threshold * q - c) > 0;
-        if (ok) inside++;
-        pts[i].setAttribute('cx', X(Math.max(qMin, Math.min(qMax, q))));
-        pts[i].setAttribute('cy', Y(Math.max(cMin, Math.min(cMax, c))));
-        pts[i].setAttribute('class', 'pt' + (ok ? '' : ' out'));
-      }
-      mean.setAttribute('cx', X(sumQ / N));
-      mean.setAttribute('cy', Y(sumC / N));
-      pceEl.textContent = Math.round(inside / N * 100) + '%';
-      var icer = (sumC / N) / (sumQ / N);
-      icerEl.textContent = Math.round(icer / 100) * 100 / 1000 + 'k';
-      pass++;
-    }
-    draw();
-    var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-    if (!reduce) setInterval(draw, 3200);
-  })();
-</script>
 <script>
 
   (function () {
