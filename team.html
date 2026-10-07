@@ -73,7 +73,7 @@
   a { color: inherit; }
   a:focus-visible, button:focus-visible { outline: 3px solid var(--accent); outline-offset: 3px; }
 
-  .wrap { max-width: 1120px; margin: 0 auto; padding-inline: 24px; }
+  .wrap { max-width: none; margin: 0; padding-inline: 32px; }
   @media (max-width: 480px) { .wrap { padding-inline: 16px; } }
 
   /* Header */
@@ -106,7 +106,7 @@
   .eyebrow { font-family: var(--mono); font-size: 0.8rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--primary); margin: 0 0 18px; }
   h1 { font-family: var(--display); font-weight: 800; font-size: clamp(2.4rem, 5.6vw, 4.4rem); line-height: 1.02; letter-spacing: -0.035em; margin: 0 0 22px; text-wrap: balance; }
   h1 em { font-style: normal; color: var(--primary); }
-  .lede { font-size: 1.2rem; color: var(--ink-2); max-width: 58em; margin: 0; }
+  .lede { font-size: 1.2rem; color: var(--ink-2); max-width: none; margin: 0; }
   .cta-row { display: flex; flex-wrap: wrap; gap: 14px; align-items: center; }
   .btn { display: inline-flex; align-items: center; gap: 10px; padding: 14px 22px; border-radius: 8px; font-weight: 600; text-decoration: none; font-size: 1rem; border: 1px solid transparent; transition: transform 120ms ease, background 120ms ease; }
   .btn-primary { background: var(--primary); color: var(--primary-ink); }
@@ -134,7 +134,7 @@
   .section-head { display: grid; grid-template-columns: minmax(0, 4fr) minmax(0, 8fr); gap: 32px; margin-bottom: 40px; }
   @media (max-width: 760px) { .section-head { grid-template-columns: 1fr; gap: 12px; } }
   h2 { font-family: var(--display); font-weight: 700; font-size: clamp(1.7rem, 3.2vw, 2.4rem); letter-spacing: -0.025em; line-height: 1.1; margin: 0; text-wrap: balance; }
-  .section-head p { margin: 0; color: var(--ink-2); font-size: 1.08rem; max-width: 40em; }
+  .section-head p { margin: 0; color: var(--ink-2); font-size: 1.08rem; max-width: none; }
 
   .grid-3 { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 20px; }
   @media (max-width: 860px) { .grid-3 { grid-template-columns: 1fr; } }
