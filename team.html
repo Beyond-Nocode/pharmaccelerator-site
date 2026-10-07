@@ -237,55 +237,63 @@
 
 <style>
   .team-hero { padding-block: 56px 8px; }
-  .team-hero h1 { font-family: var(--display); font-weight: 800; font-size: clamp(2.2rem, 5vw, 3.6rem); letter-spacing: -0.035em; line-height: 1.02; margin: 0 0 16px; }
-  .team-hero p { color: var(--ink-2); font-size: 1.15rem; max-width: 46em; margin: 0; }
-  .team-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 22px; padding-block: 32px 8px; }
-  @media (max-width: 600px) { .team-grid { grid-template-columns: 1fr; } }
-  .member { background: var(--surface); border: 1px solid var(--line); border-radius: 16px; padding: 26px 24px 24px; display: flex; flex-direction: column; gap: 14px; }
-  .member.lead { grid-column: 1 / -1; display: grid; grid-template-columns: 200px minmax(0, 1fr); gap: 28px; align-items: start; }
-  @media (max-width: 600px) { .member.lead { grid-template-columns: 1fr; } }
-  .portrait { width: 132px; height: 132px; border-radius: 50%; object-fit: cover; background: #CFCFCF; border: 4px solid var(--surface); box-shadow: 0 0 0 1px var(--line), 0 6px 18px rgba(16,33,46,0.10); filter: grayscale(1); }
-  .member.lead .portrait { width: 200px; height: 200px; }
-  .portrait.initials { filter: none; display: grid; place-items: center; font-family: var(--display); font-weight: 700; font-size: 2.2rem; color: var(--primary); background: var(--accent-soft); letter-spacing: -0.02em; }
-  .member .role { font-family: var(--mono); font-size: 0.72rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--primary); }
-  .member h2 { font-family: var(--display); font-size: 1.35rem; font-weight: 700; letter-spacing: -0.02em; margin: 2px 0 0; }
-  .member.lead h2 { font-size: 1.9rem; }
-  .member ul { margin: 0; padding: 0; list-style: none; display: grid; gap: 6px; color: var(--ink-2); font-size: 0.95rem; }
+  .team-hero h1 { font-family: var(--display); font-weight: 800; font-size: clamp(2.2rem, 5vw, 3.6rem); letter-spacing: -0.035em; line-height: 1.02; margin: 0; }
+  .team-section { padding-block: 28px 8px; }
+  .team-section .section-head { margin-bottom: 20px; }
+  .team-section:last-of-type { padding-bottom: 72px; }
+  .team-grid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 18px; align-items: stretch; }
+  @media (max-width: 1000px) { .team-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+  @media (max-width: 560px) { .team-grid { grid-template-columns: 1fr; } }
+  .member { background: var(--surface); border: 1px solid var(--line); border-radius: 16px; padding: 24px 20px 22px; display: flex; flex-direction: column; gap: 12px; }
+  .portrait { width: 124px; height: 124px; border-radius: 50%; object-fit: cover; background: #CFCFCF; border: 4px solid var(--surface); box-shadow: 0 0 0 1px var(--line), 0 6px 18px rgba(16,33,46,0.10); filter: grayscale(1); flex: none; }
+  .member .role { font-family: var(--mono); font-size: 0.7rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--primary); margin: 4px 0 0; }
+  .member h3 { font-family: var(--display); font-size: 1.2rem; font-weight: 700; letter-spacing: -0.02em; margin: 0; }
+  .member ul { margin: 0; padding: 0; list-style: none; display: grid; gap: 5px; color: var(--ink-2); font-size: 0.9rem; }
   .member ul li { padding-left: 14px; position: relative; }
-  .member ul li::before { content: ""; position: absolute; left: 0; top: 0.62em; width: 6px; height: 6px; border-radius: 1px; background: var(--accent); transform: rotate(45deg); }
+  .member ul li::before { content: ""; position: absolute; left: 0; top: 0.6em; width: 6px; height: 6px; border-radius: 1px; background: var(--accent); transform: rotate(45deg); }
   .member a { color: var(--primary); text-decoration: none; }
   .member a:hover { text-decoration: underline; }
-  .remote { padding-block: 40px 72px; }
-  .remote .section-head { margin-bottom: 20px; }
-  .role-counts { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 12px; margin: 0; padding: 0; list-style: none; }
-  .role-counts li { background: var(--surface); border: 1px solid var(--line); border-radius: 12px; padding: 18px 18px 16px; display: grid; gap: 4px; }
-  .role-counts b { font-family: var(--display); font-weight: 800; font-size: 2.2rem; line-height: 1; color: var(--primary); font-variant-numeric: tabular-nums; }
-  .role-counts span { color: var(--ink-2); font-size: 0.95rem; }
-  .remote-list { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 12px; margin: 0; padding: 0; list-style: none; }
-  .remote-list li { background: var(--surface); border: 1px solid var(--line); border-radius: 12px; padding: 14px 16px; display: flex; align-items: center; gap: 14px; }
-  .remote-list li div { display: grid; gap: 2px; min-width: 0; }
-  .portrait.small { width: 64px; height: 64px; border-width: 3px; flex: none; }
-  .remote-list b { font-family: var(--display); font-weight: 700; font-size: 1.02rem; letter-spacing: -0.01em; }
-  .remote-list span { color: var(--ink-2); font-size: 0.9rem; }
 </style>
 
 <main id="top">
   <div class="wrap team-hero">
     <h1>Team</h1>
   </div>
-  <div class="wrap team-grid">
-    <article class="member lead"><img class="portrait" src="/team/elmo.jpg?v=2" alt="Portrait of Elmo Gomes" width="800" height="800" loading="lazy"><div><p class="role">Founder</p><h2>Elmo Gomes</h2><ul><li>Former global executive at a leading pharmaceutical company for over 20 years</li><li>PhD in Economics, University of Hertfordshire, UK</li><li>Health Economics, Harvard University</li><li>Technology development for several startups, including Playback Aps, Clime GmbH, MedIAudit and Calendafy Plt</li><li><a href="mailto:elmo.gomes@pharmaccelerator.ai">elmo.gomes@pharmaccelerator.ai</a></li></ul></div></article><article class="member"><img class="portrait" src="/team/guilherme.jpg?v=2" alt="Portrait of Guilherme Bassi" width="800" height="800" loading="lazy"><p class="role">CTO</p><h2>Guilherme Bassi</h2><ul><li>Software developer and AI engineer</li><li>BSc in Technology, Estácio</li><li>Projects for Instituto de Informática (Segurança Social, CPCJ), Mobi.E, Rádio Popular, Comboios de Portugal (CP), AMA (gov.pt) and Câmara Municipal do Porto</li></ul></article><article class="member"><img class="portrait" src="/team/gabriela.jpg?v=2" alt="Portrait of Gabriela Esteves" width="800" height="800" loading="lazy"><p class="role">Generative AI Evaluator</p><h2>Gabriela Esteves</h2><ul><li>RLHF and LLM training</li><li>Multilingual AI specialist and model training QA</li><li>Trainer in Portuguese, English, French and Italian</li></ul></article><article class="member"><div class="portrait initials" role="img" aria-label="Juliana Mello">JM</div><p class="role">AI Data Curator Intern · Pharmaceutical Sciences</p><h2>Juliana Mello</h2><ul><li>Pharmaceutical Sciences BSc student</li></ul></article><article class="member"><img class="portrait" src="/team/miguel.jpg?v=2" alt="Portrait of Miguel Gomes" width="800" height="800" loading="lazy"><p class="role">AI Data Curator Intern · Economics and Finance</p><h2>Miguel Gomes</h2><ul><li>MSc student</li><li>BSc in Finance, ISEG, Universidade de Lisboa</li></ul></article>
-  </div>
-  <section class="remote">
+  <section class="team-section" id="ai-engineering">
     <div class="wrap">
       <div class="section-head">
-        <h2>Support team</h2>
+        <h2>AI Engineering team</h2>
+        <p>Health economics, AI engineering and pharmaceutical sciences, based in Lisbon.</p>
+      </div>
+      <div class="team-grid"><article class="member"><img class="portrait" src="/team/elmo.jpg?v=2" alt="Portrait of Elmo Gomes" width="800" height="800" loading="lazy"><p class="role">Founder</p><h3>Elmo Gomes</h3><ul><li>Former global executive at a leading pharmaceutical company for over 20 years</li><li>PhD in Economics, University of Hertfordshire, UK</li><li>Health Economics, Harvard University</li><li>Technology development for several startups, including Playback Aps, Clime GmbH, MedIAudit and Calendafy Plt</li><li><a href="mailto:elmo.gomes@pharmaccelerator.ai">elmo.gomes@pharmaccelerator.ai</a></li></ul></article><article class="member"><img class="portrait" src="/team/guilherme.jpg?v=2" alt="Portrait of Guilherme Bassi" width="800" height="800" loading="lazy"><p class="role">CTO</p><h3>Guilherme Bassi</h3><ul><li>Software developer and AI engineer</li><li>BSc in Technology, Estácio</li><li>Projects for Instituto de Informática (Segurança Social, CPCJ), Mobi.E, Rádio Popular, Comboios de Portugal (CP), AMA (gov.pt) and Câmara Municipal do Porto</li></ul></article><article class="member"><img class="portrait" src="/team/gabriela.jpg?v=2" alt="Portrait of Gabriela Esteves" width="800" height="800" loading="lazy"><p class="role">Generative AI Evaluator</p><h3>Gabriela Esteves</h3><ul><li>RLHF and LLM training</li><li>Multilingual AI specialist and model training QA</li><li>Trainer in Portuguese, English, French and Italian</li></ul></article><article class="member"><img class="portrait" src="/team/miguel.jpg?v=2" alt="Portrait of Miguel Gomes" width="800" height="800" loading="lazy"><p class="role">AI Data Curator Intern · Economics and Finance</p><h3>Miguel Gomes</h3><ul><li>MSc student</li><li>BSc in Finance, ISEG, Universidade de Lisboa</li></ul></article></div>
+    </div>
+  </section>
+  <section class="team-section" id="software-development">
+    <div class="wrap">
+      <div class="section-head">
+        <h2>Software Development team</h2>
         <p>Pharmaccelerator is supported by Bracketmore OÜ, based in Estonia, for software development needs.</p>
       </div>
-      <ul class="remote-list"><li><img class="portrait small" src="/team/mariaclara.jpg" alt="Portrait of Maria Clara Lins" width="800" height="800" loading="lazy"><div><b>Maria Clara Lins</b><span>Project Manager</span></div></li><li><img class="portrait small" src="/team/luiz.jpg" alt="Portrait of Luiz Correa" width="800" height="800" loading="lazy"><div><b>Luiz Correa</b><span>Software Development Lead</span></div></li><li><img class="portrait small" src="/team/jose.jpg" alt="Portrait of José Marinho" width="800" height="800" loading="lazy"><div><b>José Marinho</b><span>AI Engineer</span></div></li><li><img class="portrait small" src="/team/thiago.jpg" alt="Portrait of Thiago Bomfim" width="800" height="800" loading="lazy"><div><b>Thiago Bomfim</b><span>Software Developer</span></div></li><li><img class="portrait small" src="/team/gabriel.jpg" alt="Portrait of Gabriel Almeida" width="800" height="800" loading="lazy"><div><b>Gabriel Almeida</b><span>Software Developer</span></div></li></ul>
+      <div class="team-grid"><article class="member"><img class="portrait" src="/team/mariaclara.jpg" alt="Portrait of Maria Clara Lins" width="800" height="800" loading="lazy"><p class="role">Project Manager</p><h3>Maria Clara Lins</h3></article><article class="member"><img class="portrait" src="/team/luiz.jpg" alt="Portrait of Luiz Correa" width="800" height="800" loading="lazy"><p class="role">Software Development Lead</p><h3>Luiz Correa</h3></article><article class="member"><img class="portrait" src="/team/jose.jpg" alt="Portrait of José Marinho" width="800" height="800" loading="lazy"><p class="role">AI Engineer</p><h3>José Marinho</h3></article><article class="member"><img class="portrait" src="/team/thiago.jpg" alt="Portrait of Thiago Bomfim" width="800" height="800" loading="lazy"><p class="role">Software Developer</p><h3>Thiago Bomfim</h3></article><article class="member"><img class="portrait" src="/team/gabriel.jpg" alt="Portrait of Gabriel Almeida" width="800" height="800" loading="lazy"><p class="role">Software Developer</p><h3>Gabriel Almeida</h3></article></div>
     </div>
   </section>
 </main>
+<script>
+  (function () {
+    // Keep every team card the same height: measure the tallest, apply to all; redo on resize and once fonts load.
+    var cards = document.querySelectorAll('.member');
+    function equalise() {
+      var max = 0;
+      cards.forEach(function (c) { c.style.minHeight = ''; });
+      cards.forEach(function (c) { max = Math.max(max, c.getBoundingClientRect().height); });
+      cards.forEach(function (c) { c.style.minHeight = Math.ceil(max) + 'px'; });
+    }
+    equalise();
+    window.addEventListener('resize', equalise);
+    if (document.fonts && document.fonts.ready) document.fonts.ready.then(equalise);
+    window.addEventListener('load', equalise);
+  })();
+</script>
 
 <footer class="wrap">
   <span class="legal">
